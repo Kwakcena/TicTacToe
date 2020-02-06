@@ -27,6 +27,8 @@ class Board extends React.Component {
   }
 
   handleClick(i) {
+    // slice() 메서드는 어떤 배열의 begin 부터 end까지(end 미 포함)에 대한 얕은 복사본을 새로운
+    // 배열 객체로 반환해준다. 원본 배열은 수정되지 않는다.
     const squares = this.state.squares.slice();
     squares[i] = "X";
     this.setState({ squares: squares });
