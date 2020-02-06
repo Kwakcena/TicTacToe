@@ -22,7 +22,8 @@ class Board extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      squares: Array(9).fill(null)
+      squares: Array(9).fill(null),
+      xIsNext: true
     };
   }
 
@@ -30,8 +31,11 @@ class Board extends React.Component {
     // slice() 메서드는 어떤 배열의 begin 부터 end까지(end 미 포함)에 대한 얕은 복사본을 새로운
     // 배열 객체로 반환해준다. 원본 배열은 수정되지 않는다.
     const squares = this.state.squares.slice();
-    squares[i] = "X";
-    this.setState({ squares: squares });
+    squares[i] = this.state.xIsNext ? "X" : "O";
+    this.setState({
+      squares: squares,
+      xIsNext: !this.state.xIsNext
+    });
   }
 
   renderSquare(i) {
