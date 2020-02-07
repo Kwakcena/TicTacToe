@@ -28,8 +28,8 @@ export default class Game extends React.Component {
       return;
     }
     squares[i] = this.state.xIsNext ? "X" : "O";
-    rows[this.state.stepNumber] = parseInt(i % 3);
-    cols[this.state.stepNumber] = parseInt(i / 3);
+    rows[this.state.stepNumber] = parseInt(i / 3);
+    cols[this.state.stepNumber] = parseInt(i % 3);
 
     this.setState({
       history: history.concat([
