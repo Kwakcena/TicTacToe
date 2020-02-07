@@ -56,14 +56,18 @@ export default class Game extends React.Component {
     const current = history[this.state.stepNumber];
     const winner = calculateWinner(current.squares);
 
-    // TODO : 이동 기록 목록에서 특정 형식(행, 열)으로 각 이동의 위치를 표시해주세요.
     const moves = history.map((step, move) => {
       const desc = move
         ? `Go to move #(${step.rows[move - 1]}, ${step.cols[move - 1]})`
         : "Go to game start";
       return (
         <li key={move}>
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
+          <button
+            className="Game-history-button"
+            onClick={() => this.jumpTo(move)}
+          >
+            {desc}
+          </button>
         </li>
       );
     });
